@@ -1,0 +1,43 @@
+﻿@page
+@model CandyShop.Pages.CartModel
+@{
+}
+
+<div class="container">
+    <div class="cart-title">
+        <h5>1. I din shoppingbag</h5>
+
+    </div>
+    @foreach (var product in Model.CartView)
+    {
+        <div class="col-3">
+            <img class="product-thumbnail" src="~/images/@product.ImageUrl" />
+            <div class="product-body">
+                <p class="all-products-title"> @product.Name</p>
+                <p>Artikelnummer: @product.Id</p>
+
+            </div>
+        </div>
+    }
+    <h5 class="shipping-title">2. Välj fraktmetod</h5>
+    <div class="">
+
+        <form method="post">
+            @foreach (var shippingMethod in Model.ShippingView)
+            {
+                <div>
+                    <input asp-for="@shippingMethod.ShippingPrice" name="Shipping" class="" id="@shippingMethod.ShippingId" type="radio" value="@shippingMethod.ShippingId">
+                    <label for="@shippingMethod.ShippingId">@shippingMethod.ShippingName @shippingMethod.ShippingPrice kr</label>
+
+                </div>
+            }
+            <button class="btn btn-secondary" type="submit">Klar</button>
+        </form>
+    </div>
+    <br />
+    <div class="row">
+        <a class="btn btn-dark" asp-page="/OrderConfirmation">Betala med Swish</a>
+        <a class="btn btn-dark" asp-page="/OrderConfirmation">Betala med Klarna</a>
+    </div>
+
+</div>

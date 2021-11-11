@@ -1,0 +1,32 @@
+﻿@page
+@model CandyShop.Pages.SodaProductsModel
+@{
+}
+<div class="container">
+
+    <div class="row">
+        <partial name="_CategoryButtons" />
+    </div>
+    <br />
+    <div class="row">
+
+        @foreach (var product in Model.SodaProductView)
+
+        {
+            <div class="col-3">
+                <a asp-route-id="@product.Id" asp-page="/ProductDetails">
+                    <img class="product-thumbnail" src="~/images/@product.ImageUrl" />
+                </a>
+                <div class="product-body">
+                    <p class="all-products-title"> @product.Name</p>
+                    <p>Artikelnummer: @product.Id</p>
+
+                </div>
+                <div class="add-to-cart-buttom">
+                    <a class="btn btn-secondary" asp-route-id="@product.Id" asp-page="/Cart">Add to cart</a>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

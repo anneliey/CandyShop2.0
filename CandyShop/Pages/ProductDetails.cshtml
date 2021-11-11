@@ -1,0 +1,30 @@
+﻿@page
+@model CandyShop.Pages.ProductInformationModel
+@{
+}
+
+<div class="container">
+    <div class="row">
+
+        @foreach (var product in Model.ProductDetailsView)
+
+        {
+        <div class="card">
+            <img class="product-thumbnail" src="~/images/@product.ImageUrl" />
+            <div class="product-body">
+                <p class="all-products-title"> @product.Name</p>
+                <p>Artikelnummer: @product.Id</p>
+
+
+            </div>
+            <div class="add-to-cart-buttom">
+                <a class="btn btn-secondary" asp-route-id="@product.Id" asp-page="/Cart">Add to cart</a>
+            </div>
+            <p>@product.Description</p>
+        </div>
+            
+
+        }
+    </div>
+    
+</div>

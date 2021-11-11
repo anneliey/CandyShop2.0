@@ -1,1 +1,2 @@
-# CandyShop2.0
+# Candy-Shop
+ 

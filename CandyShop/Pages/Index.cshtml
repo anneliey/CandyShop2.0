@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the Candy Shop!</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+    @foreach (var product in Model.IndexProductView)
+    {
+            <div class="col-3">
+                <a asp-route-id="@product.Id" asp-page="/ProductDetails">
+                    <img class="product-thumbnail" src="~/images/@product.ImageUrl" />
+                </a>
+                <div class="product-body">
+                    <p class="all-products-title"> @product.Name</p>
+                    <p>Artikelnummer: @product.Id</p>
+
+                </div>
+
+            </div>       
+
+    }
+</div>
+</div>

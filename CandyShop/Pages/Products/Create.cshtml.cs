@@ -35,7 +35,7 @@ namespace CandyShop.Pages.Products
                 return Page();
             }
 
-            _context.Products.Add(ProductModel);
+            _context.DbProducts.Add(ProductModel);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

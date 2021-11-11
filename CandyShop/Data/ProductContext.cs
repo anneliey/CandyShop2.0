@@ -14,7 +14,7 @@ namespace CandyShop.Data
         {
         }
        
-        public DbSet<ProductModel> Products { get; set; }
+        public DbSet<ProductModel> DbProducts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

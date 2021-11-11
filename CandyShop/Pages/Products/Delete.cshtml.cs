@@ -29,7 +29,7 @@ namespace CandyShop.Pages.Products
                 return NotFound();
             }
 
-            ProductModel = await _context.Products.FirstOrDefaultAsync(m => m.Id == id);
+            ProductModel = await _context.DbProducts.FirstOrDefaultAsync(m => m.Id == id);
 
             if (ProductModel == null)
             {
@@ -45,11 +45,11 @@ namespace CandyShop.Pages.Products
                 return NotFound();
             }
 
-            ProductModel = await _context.Products.FindAsync(id);
+            ProductModel = await _context.DbProducts.FindAsync(id);
 
             if (ProductModel != null)
             {
-                _context.Products.Remove(ProductModel);
+                _context.DbProducts.Remove(ProductModel);
                 await _context.SaveChangesAsync();
             }
 

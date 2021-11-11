@@ -27,7 +27,7 @@ namespace CandyShop.Data
                 {
                     new ProductModel()
                     {
-                        Id = 1,
+                        Id = 10,
                         Name = "Bilar", 
                         Category = "Candy",
                         Description = "Glukossirap, socker, stärkelse, gelatin, invertsockersirap, syra (E270), " +
@@ -41,7 +41,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 2,
+                        Id = 20,
                         Name = "Coca-Cola Sleek Can 33 cl",
                         Category = "Soda",
                         Description = "Priset är inklusive pant",
@@ -51,7 +51,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 3,
+                        Id = 30,
                         Name = "Coca-Cola Vanilla Zero Sleek Can 33 cl",
                         Category = "Soda",
                         Description = "Priset är inklusive pant",
@@ -61,7 +61,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 4,
+                        Id = 40,
                         Name = "Crispy Bacon 175 gr",
                         Category = "Chips",
                         Description = "Ingredienser: 60% Vetemjöl (VETE), solrosolja, salt, bakpulver (natriumhydrogenkarbonat), " +
@@ -76,7 +76,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 5,
+                        Id = 50,
                         Name = "Malaco Djungelvrål 80 gr",
                         Category = "Candy",
                         Description = "Näringsvärde per 100.0 gram Energi 345.0/1475.0 kilokalori/kilojoule Fett 0.0 gram varav mättat fett 0.0 gram " +
@@ -87,7 +87,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 6,
+                        Id = 60,
                         Name = "Estrella Cheddar & Sourcream 175 g",
                         Category = "Chips",
                         Description = "Potatis, solros-/rapsolja, kryddblandning (salt, VASSLEpulver (från MJÖLK), socker, lökpulver, MJÖLKprotein, " +

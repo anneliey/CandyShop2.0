@@ -30,7 +30,7 @@ namespace CandyShop.Pages.Products
                 return NotFound();
             }
 
-            ProductModel = await _context.ProductModel.FirstOrDefaultAsync(m => m.Id == id);
+            ProductModel = await _context.Products.FirstOrDefaultAsync(m => m.Id == id);
 
             if (ProductModel == null)
             {
@@ -71,7 +71,7 @@ namespace CandyShop.Pages.Products
 
         private bool ProductModelExists(int id)
         {
-            return _context.ProductModel.Any(e => e.Id == id);
+            return _context.Products.Any(e => e.Id == id);
         }
     }
 }

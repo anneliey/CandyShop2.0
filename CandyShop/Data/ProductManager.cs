@@ -23,6 +23,7 @@ namespace CandyShop.Data
         {
             ProductModel = await _context.Products.ToListAsync();
         }
+
         public static IEnumerable<ProductModel> Search(string SearchTerm)
         {
             if (string.IsNullOrEmpty(SearchTerm))
@@ -31,7 +32,7 @@ namespace CandyShop.Data
             }
             var lowercaseSearch = SearchTerm.ToLower();
 
-            return Products.Where(p => p.Name.ToLower().Contains(lowercaseSearch));
+            return Products.Where(product => product.Name.ToLower().Contains(lowercaseSearch));
         }
         public static List<ProductModel> Products { get; set; } = new List<ProductModel>();
 

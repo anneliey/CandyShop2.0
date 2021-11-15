@@ -14,7 +14,7 @@ namespace CandyShop.Pages
     {
         public IEnumerable<ProductModel> ProductView { get; set; } = new List<ProductModel>();
 
-        [BindProperty(SupportsGet = true)]
+        [BindProperty]
         public string SearchTerm { get; set; }
         private readonly CandyShop.Data.ProductContext _context;
 
@@ -29,6 +29,10 @@ namespace CandyShop.Pages
         {
             ProductView = new ProductManager(_context).Search(SearchTerm);
             //ProductModel = await _context.Products.ToListAsync();
+        }
+        public void OnPost()
+        {
+            ProductView = new ProductManager(_context).Search(SearchTerm);
         }
     }
 }

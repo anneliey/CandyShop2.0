@@ -1,5 +1,4 @@
 ﻿
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,11 +32,11 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         @*<li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                            </li>*@
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                </li>*@
                         @*<li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/AllProducts">Products</a>
-                            </li>*@
+                    <a class="nav-link text-dark" asp-area="" asp-page="/AllProducts">Products</a>
+                </li>*@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Cart">Varukorg</a>
                         </li>
@@ -45,12 +44,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Products/Index">Admin</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-light my-2 my-sm-0" style="background-color: #ffc2e1" type="submit">Search</button>
-                    </form>
-
+                    @*<form class="d-flex">
+                <input class="form-control me-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-light my-2 my-sm-0" style="background-color: #ffc2e1" type="submit">Search</button>
+            </form>*@
                 </div>
+                @RenderSection("SearchBar", required: false)
             </div>
         </nav>
     </header>

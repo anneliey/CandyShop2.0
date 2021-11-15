@@ -4,6 +4,7 @@
 }
 
 <div class="container">
+    <h1 class="text-center">Information and Shipping</h1>
     <div class="cart-title">
         <h5>1. I din shoppingbag</h5>
 
@@ -19,25 +20,75 @@
             </div>
         </div>
     }
-    <h5 class="shipping-title">2. Välj fraktmetod</h5>
-    <div class="">
 
-        <form method="post">
-            @foreach (var shippingMethod in Model.ShippingView)
-            {
-                <div>
-                    <input asp-for="@shippingMethod.ShippingPrice" name="Shipping" class="" id="@shippingMethod.ShippingId" type="radio" value="@shippingMethod.ShippingId">
-                    <label for="@shippingMethod.ShippingId">@shippingMethod.ShippingName @shippingMethod.ShippingPrice kr</label>
+    <h3>Enter your information below: </h3>
+    <form method="post">
+        <label>Name:</label><br />
+        <input type="text" asp-for="@Model.Name" /><br />
 
-                </div>
-            }
-            <button class="btn btn-secondary" type="submit">Klar</button>
-        </form>
-    </div>
-    <br />
-    <div class="row">
-        <a class="btn btn-dark" asp-page="/OrderConfirmation">Betala med Swish</a>
-        <a class="btn btn-dark" asp-page="/OrderConfirmation">Betala med Klarna</a>
-    </div>
 
+
+        <label>E-mail:</label><br />
+        <input type="text" asp-for="@Model.Email" /><br />
+
+
+
+        <label>Phone:</label><br />
+        <input type="number" asp-for="@Model.Number" /><br />
+
+
+
+        <label>Adress:</label><br />
+        <input type="text" asp-for="@Model.Adress" /><br />
+
+
+
+        <label>City:</label><br />
+        <input type="text" asp-for="@Model.City" /><br />
+
+
+
+        <label>Postal code:</label><br />
+        <input type="text" asp-for="@Model.PostalCode" /><br />
+
+
+
+        <br /><h3>Choose your shipping option: </h3>
+        <input type="radio" asp-for="@Model.ShippingOption" name="ShippingOption" id="opt1" value="PostNord" /><label for="opt1">PostNord (39 SEK)</label><br />
+        <input type="radio" asp-for="@Model.ShippingOption" name="ShippingOption" id="opt2" value="DHL" /><label for="opt2">DHL (99 SEK)</label><br />
+
+
+
+        <br /><h3>Choose your payment method: </h3>
+        <input type="radio" asp-for="@Model.PaymentOption" name="PaymentOption" id="opt1" value="Debit Card" /><label for="opt1">Card Payment (0 SEK)</label><br />
+        <input type="radio" asp-for="@Model.PaymentOption" name="PaymentOption" id="opt3" value="PayPal" /><label for="opt1">PayPal (0 SEK)</label><br />
+        <input type="radio" asp-for="@Model.PaymentOption" name="PaymentOption" id="opt2" value="Klarna (29 SEK)" /><label for="opt1">Klarna (29 SEK)</label><br />
+
+
+
+
+        <br /><input type="submit" value="Confirm Order" />
+    </form>
 </div>
+    @*<h5 class="shipping-title">2. Välj fraktmetod</h5>
+            <div class="">
+
+                <form method="post">
+                    @foreach (var shippingMethod in Model.ShippingView)
+                    {
+                        <div>
+                            <input asp-for="@shippingMethod.ShippingPrice" name="Shipping" class="" id="@shippingMethod.ShippingId" type="radio" value="@shippingMethod.ShippingId">
+                            <label for="@shippingMethod.ShippingId">@shippingMethod.ShippingName @shippingMethod.ShippingPrice kr</label>
+
+                        </div>
+                    }
+                    <button class="btn btn-secondary" type="submit">Klar</button>
+                </form>
+            </div>
+            <br />
+            <div class="row">
+                <a class="btn btn-dark" asp-page="/OrderConfirmation">Betala med Swish</a>
+                <a class="btn btn-dark" asp-page="/OrderConfirmation">Betala med Klarna</a>
+            </div>
+
+        </div>*@

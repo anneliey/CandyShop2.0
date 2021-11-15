@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace CandyShop.Models
 {
+    
     public class CustomerModel
     {
         public string FullName { get; set; }

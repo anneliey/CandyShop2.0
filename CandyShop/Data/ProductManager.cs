@@ -13,6 +13,7 @@ namespace CandyShop.Data
     {
         private ProductContext _context;
 
+        public static List<ProductModel> Products { get; set; } = new List<ProductModel>();
         public IList<ProductModel> ProductModel { get; set; }
 
         public ProductManager(ProductContext context)
@@ -20,29 +21,26 @@ namespace CandyShop.Data
             _context = context;
         }
 
-        // NOTE: "find-method"
         public IEnumerable<ProductModel> Search(string SearchTerm)
         {
+            var dbProducts = _context.Products.ToList();
+
+            var combinedProducts = Products.Concat(dbProducts).ToList();
+
             if (string.IsNullOrEmpty(SearchTerm))
             {
-                var dbProducts = _context.Products.ToList();
-
-                foreach(var dbProduct in dbProducts)
-                {
-                    Products.Add(dbProduct);
-                }
-
-                return Products;
+                return combinedProducts;
             }
-            var lowercaseSearch = SearchTerm.ToLower();
 
-            return Products.Where(product => product.Name.ToLower().Contains(lowercaseSearch));
+            var lowercaseSearchText = SearchTerm.ToLower();
+            var filteredProducts = combinedProducts.Where(product => product.Name.ToLower().Contains(lowercaseSearchText));
+
+            return filteredProducts;
         }
-
-        public static List<ProductModel> Products { get; set; } = new List<ProductModel>();
-        // NOTE: "ProductModel"
+        
         public static List<ProductModel> GetProducts()
         {
+          
             if (!Products.Any())
             {
                 Products = new List<ProductModel>()

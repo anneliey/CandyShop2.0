@@ -10,7 +10,14 @@
 
         {
         <div class="card">
-            <img class="product-thumbnail" src="~/images/@product.ImageUrl" />
+            @if (product.ImageUrl != null)
+            {
+                <img class="product-thumbnail" src="~/images/@product.ImageUrl" />
+            }
+            else
+            {
+                <img class="product-thumbnail" src="https://auctionresource.azureedge.net/blob/images/auction-images/2021-01-14/312364fa-628a-4525-becf-9124adc1e7ef.jpg?preset=740x555" />
+            }
             <div class="product-body">
                 <p class="all-products-title"> @product.Name</p>
                 <p>Artikelnummer: @product.Id</p>

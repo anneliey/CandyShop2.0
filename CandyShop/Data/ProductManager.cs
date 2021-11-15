@@ -28,7 +28,7 @@ namespace CandyShop.Data
         {
             if (string.IsNullOrEmpty(SearchTerm))
             {
-                return (Products, _context);
+                return (Products /*_context*/);
             }
             var lowercaseSearch = SearchTerm.ToLower();
 

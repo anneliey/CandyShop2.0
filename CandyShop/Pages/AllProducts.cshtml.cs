@@ -16,7 +16,7 @@ namespace CandyShop.Pages
 
         [BindProperty(SupportsGet = true)]
         public string SearchTerm { get; set; }
-        private readonly CandyShop.Data.ProductContext _context;
+        private readonly ProductContext _context;
 
         public AllProductsModel(CandyShop.Data.ProductContext context)
         {

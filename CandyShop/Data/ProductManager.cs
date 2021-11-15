@@ -19,11 +19,8 @@ namespace CandyShop.Data
         {
             _context = context;
         }
-        public async Task GetDbProducts()
-        {
-            ProductModel = await _context.Products.ToListAsync();
-        }
 
+        // NOTE: "find-method"
         public IEnumerable<ProductModel> Search(string SearchTerm)
         {
             if (string.IsNullOrEmpty(SearchTerm))
@@ -35,14 +32,15 @@ namespace CandyShop.Data
                     Products.Add(dbProduct);
                 }
 
-                return (Products /*_context*/);
+                return Products;
             }
             var lowercaseSearch = SearchTerm.ToLower();
 
             return Products.Where(product => product.Name.ToLower().Contains(lowercaseSearch));
         }
-        public static List<ProductModel> Products { get; set; } = new List<ProductModel>();
 
+        public static List<ProductModel> Products { get; set; } = new List<ProductModel>();
+        // NOTE: "ProductModel"
         public static List<ProductModel> GetProducts()
         {
             if (!Products.Any())
@@ -51,7 +49,7 @@ namespace CandyShop.Data
                 {
                     new ProductModel()
                     {
-                        Id = 1,
+                        Id = 100,
                         Name = "Bilar", 
                         Category = "Candy",
                         Description = "Glukossirap, socker, stärkelse, gelatin, invertsockersirap, syra (E270), " +
@@ -65,7 +63,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 2,
+                        Id = 200,
                         Name = "Coca-Cola Sleek Can 33 cl",
                         Category = "Soda",
                         Description = "Priset är inklusive pant",
@@ -75,7 +73,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 3,
+                        Id = 300,
                         Name = "Coca-Cola Vanilla Zero Sleek Can 33 cl",
                         Category = "Soda",
                         Description = "Priset är inklusive pant",
@@ -85,7 +83,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 4,
+                        Id = 400,
                         Name = "Crispy Bacon 175 gr",
                         Category = "Chips",
                         Description = "Ingredienser: 60% Vetemjöl (VETE), solrosolja, salt, bakpulver (natriumhydrogenkarbonat), " +
@@ -100,7 +98,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 5,
+                        Id = 500,
                         Name = "Malaco Djungelvrål 80 gr",
                         Category = "Candy",
                         Description = "Näringsvärde per 100.0 gram Energi 345.0/1475.0 kilokalori/kilojoule Fett 0.0 gram varav mättat fett 0.0 gram " +
@@ -111,7 +109,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 6,
+                        Id = 600,
                         Name = "Estrella Cheddar & Sourcream 175 g",
                         Category = "Chips",
                         Description = "Potatis, solros-/rapsolja, kryddblandning (salt, VASSLEpulver (från MJÖLK), socker, lökpulver, MJÖLKprotein, " +

@@ -13,27 +13,85 @@
 <div class="row">
     <partial name="_CategoryButtons" />
 </div>
-    <div class="container">
+<div class="container">
 
-        <br>
-        <div class="row">
+    <br>
+    <div class="row">
 
-            @foreach (var product in Model.ProductView)
+        @foreach (var product in Model.ProductView)
 
-            {
-                <div class=" col-3">
-                    <a asp-route-id="@product.Id" asp-page="/ProductDetails">
-                        <img class="product-thumbnail" src="~/images/@product.ImageUrl" />
-                    </a>
-                    <div class="product-body">
-                        <p class="all-products-title"> @product.Name</p>
-                        <p>Artikelnummer: @product.Id</p>
+        {
+        <div class=" col-3">
+            <a asp-route-id="@product.Id" asp-page="/ProductDetails">
+                @if (product.ImageUrl != null)
+                {
+                    <img class="product-thumbnail" src="~/images/@product.ImageUrl" />
+                }
+                else
+                {
+                    <img class="product-thumbnail" src="https://auctionresource.azureedge.net/blob/images/auction-images/2021-01-14/312364fa-628a-4525-becf-9124adc1e7ef.jpg?preset=740x555" />
+                }
+         
+            </a>
+            <div class="product-body">
+                <p class="all-products-title"> @product.Name</p>
+                <p>Artikelnummer: @product.Id</p>
 
-                    </div>
-                    <div class="add-to-cart-button">
-                        <a class="btn btn-secondary" asp-route-id="@product.Id" asp-page="/Cart">Add to cart</a>
-                    </div>
-                </div>
-            }
+            </div>
+            <div class="add-to-cart-button">
+            <a class="btn btn-secondary" asp-route-id="@product.Id" asp-page="/Cart">Add to cart</a>
         </div>
+            
+            @*<asp:LinkButton ID="Test"
+                            OnClick="AddToCart"
+                            OnClientClick="javascript: window.open('/Cart')"
+                            runat="server" 
+                            class="btn btn-secondary" 
+                             >Add to cart</asp:LinkButton>*@
+        </div>
+        }
+        @*@foreach (var product in Model.ProductView)
+
+        {
+            <div class=" col-3">
+                <a asp-route-id="@Html.DisplayFor(modelItem => product.Id) asp-page="./ProductDetails">
+                    <img class="product-thumbnail" src="~/images/@Html.DisplayFor(modelItem => product.ImageUrl) alt="image" />
+                </a>
+                <div class="product-body">
+                    <p class="all-products-title"> @Html.DisplayFor(modelItem => product.Name)</p>
+                    <p>Artikelnummer: @Html.DisplayFor(modelItem =>product.Id)</p>
+
+                </div>
+                <div class="add-to-cart-button">
+                    <a class="btn btn-secondary" asp-route-id="@Html.DisplayFor(modelItem => @product.Id)" asp-page="/Cart">Add to cart</a>
+                </div>
+            </div>
+         
+        }*@
     </div>
+    @*@foreach (var item in Model.ProductModel)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }*@
+</div>

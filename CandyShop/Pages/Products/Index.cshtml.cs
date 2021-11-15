@@ -23,7 +23,7 @@ namespace CandyShop.Pages.Products
 
         public async Task OnGetAsync()
         {
-            ProductModel = await _context.ProductModel.ToListAsync();
+            ProductModel = await _context.Products.ToListAsync();
         }
     }
 }

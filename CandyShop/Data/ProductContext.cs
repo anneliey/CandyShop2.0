@@ -13,13 +13,15 @@ namespace CandyShop.Data
             : base(options)
         {
         }
+
         public DbSet<ProductModel> Products { get; set; }
+        public DbSet<CartModel> ShoppingCartItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ProductModel>().ToTable("Product");
         }
 
-        public DbSet<CandyShop.Models.ProductModel> ProductModel { get; set; }
+        
     }
 }

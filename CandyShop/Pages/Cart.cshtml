@@ -3,22 +3,42 @@
 @{
 }
 
-<div class="container">
+<div class="container my-5">
     <div class="cart-title">
         <h5>1. I din shoppingbag</h5>
 
     </div>
-    @foreach (var product in Model.CartView)
-    {
-        <div class="col-3">
-            <img class="product-thumbnail" src="~/images/@product.ImageUrl" />
+    <div class="d-flex flex-wrap">
+        @if (Model.CartView != null)
+        {
+            @foreach (var product in Model.CartView)
+            {
+        <div class="col-3 my-4">
+            @if (product.ImageUrl != null)
+            {
+                <img class="product-thumbnail" src="~/images/@product.ImageUrl" />
+            }
+            else
+            {
+                <img class="product-thumbnail" src="https://auctionresource.azureedge.net/blob/images/auction-images/2021-01-14/312364fa-628a-4525-becf-9124adc1e7ef.jpg?preset=740x555" />
+            }
+
             <div class="product-body">
                 <p class="all-products-title"> @product.Name</p>
+                <p>Antal i lager:  @product.Stock st</p>
                 <p>Artikelnummer: @product.Id</p>
+                <div>
+
+                    <a class="btn btn-secondary" asp-route-removeId="@product.Id" asp-page="/Cart">-</a>
+                    <a class="btn btn-secondary" asp-route-addId="@product.Id" asp-page="/Cart">+</a>
+                </div>
 
             </div>
+
         </div>
-    }
+            }
+        }
+    </div>
     <h5 class="shipping-title">2. Välj fraktmetod</h5>
     <div class="">
 

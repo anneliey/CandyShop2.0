@@ -11,11 +11,11 @@ namespace CandyShop.Data
 {
     public class ProductManager
     {
-        public IList<ProductModel> ProductModel { get; set; }
-
         private ProductContext _context;
 
-        public void AllProductsModel(ProductContext context)
+        public IList<ProductModel> ProductModel { get; set; }
+
+        public ProductManager(ProductContext context)
         {
             _context = context;
         }
@@ -24,10 +24,17 @@ namespace CandyShop.Data
             ProductModel = await _context.Products.ToListAsync();
         }
 
-        public static IEnumerable<ProductModel> Search(string SearchTerm)
+        public IEnumerable<ProductModel> Search(string SearchTerm)
         {
             if (string.IsNullOrEmpty(SearchTerm))
             {
+                var dbProducts = _context.Products.ToList();
+
+                foreach(var dbProduct in dbProducts)
+                {
+                    Products.Add(dbProduct);
+                }
+
                 return (Products /*_context*/);
             }
             var lowercaseSearch = SearchTerm.ToLower();

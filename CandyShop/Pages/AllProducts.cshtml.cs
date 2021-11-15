@@ -27,8 +27,8 @@ namespace CandyShop.Pages
 
         public async Task OnGetAsync()
         {
-            ProductView = ProductManager.Search(SearchTerm);
-            ProductModel = await _context.Products.ToListAsync();
+            ProductView = new ProductManager(_context).Search(SearchTerm);
+            //ProductModel = await _context.Products.ToListAsync();
         }
     }
 }

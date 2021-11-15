@@ -13,45 +13,41 @@ namespace CandyShop.Data
     {
         private ProductContext _context;
 
+        public static List<ProductModel> Products { get; set; } = new List<ProductModel>();
         public IList<ProductModel> ProductModel { get; set; }
 
         public ProductManager(ProductContext context)
         {
             _context = context;
         }
-        public async Task GetDbProducts()
-        {
-            ProductModel = await _context.Products.ToListAsync();
-        }
 
         public IEnumerable<ProductModel> Search(string SearchTerm)
         {
+            var dbProducts = _context.Products.ToList();
+
+            var combinedProducts = Products.Concat(dbProducts).ToList();
+
             if (string.IsNullOrEmpty(SearchTerm))
             {
-                var dbProducts = _context.Products.ToList();
-
-                foreach(var dbProduct in dbProducts)
-                {
-                    Products.Add(dbProduct);
-                }
-
-                return (Products /*_context*/);
+                return combinedProducts;
             }
-            var lowercaseSearch = SearchTerm.ToLower();
 
-            return Products.Where(product => product.Name.ToLower().Contains(lowercaseSearch));
+            var lowercaseSearchText = SearchTerm.ToLower();
+            var filteredProducts = combinedProducts.Where(product => product.Name.ToLower().Contains(lowercaseSearchText));
+
+            return filteredProducts;
         }
-        public static List<ProductModel> Products { get; set; } = new List<ProductModel>();
-
+        
         public static List<ProductModel> GetProducts()
         {
+          
             if (!Products.Any())
             {
                 Products = new List<ProductModel>()
                 {
                     new ProductModel()
                     {
-                        Id = 1,
+                        Id = 100,
                         Name = "Bilar", 
                         Category = "Candy",
                         Description = "Glukossirap, socker, stärkelse, gelatin, invertsockersirap, syra (E270), " +
@@ -65,7 +61,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 2,
+                        Id = 200,
                         Name = "Coca-Cola Sleek Can 33 cl",
                         Category = "Soda",
                         Description = "Priset är inklusive pant",
@@ -75,7 +71,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 3,
+                        Id = 300,
                         Name = "Coca-Cola Vanilla Zero Sleek Can 33 cl",
                         Category = "Soda",
                         Description = "Priset är inklusive pant",
@@ -85,7 +81,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 4,
+                        Id = 400,
                         Name = "Crispy Bacon 175 gr",
                         Category = "Chips",
                         Description = "Ingredienser: 60% Vetemjöl (VETE), solrosolja, salt, bakpulver (natriumhydrogenkarbonat), " +
@@ -100,7 +96,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 5,
+                        Id = 500,
                         Name = "Malaco Djungelvrål 80 gr",
                         Category = "Candy",
                         Description = "Näringsvärde per 100.0 gram Energi 345.0/1475.0 kilokalori/kilojoule Fett 0.0 gram varav mättat fett 0.0 gram " +
@@ -111,7 +107,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 6,
+                        Id = 600,
                         Name = "Estrella Cheddar & Sourcream 175 g",
                         Category = "Chips",
                         Description = "Potatis, solros-/rapsolja, kryddblandning (salt, VASSLEpulver (från MJÖLK), socker, lökpulver, MJÖLKprotein, " +

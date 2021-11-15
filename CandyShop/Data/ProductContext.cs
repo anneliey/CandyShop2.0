@@ -14,7 +14,8 @@ namespace CandyShop.Data
         {
         }
 
-        public DbSet<CandyShop.Models.ProductModel> Products { get; set; }
+        public DbSet<ProductModel> Products { get; set; }
+        public DbSet<CartModel> ShoppingCartItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

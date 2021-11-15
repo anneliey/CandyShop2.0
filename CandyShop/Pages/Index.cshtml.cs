@@ -14,6 +14,8 @@ namespace CandyShop.Pages
     {
         
         public List<ProductModel> IndexProductView { get; set; } = new List<ProductModel>();
+        public string SearchTerm { get; set; }
+
         public void OnGet()
         {
             List<ProductModel> products = ProductManager.GetProducts();

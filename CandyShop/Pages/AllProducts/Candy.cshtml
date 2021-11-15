@@ -2,11 +2,11 @@
 @model CandyShop.Pages.CandyProductsModel
 @{
 }
-<div class="container">
+@section SearchBar {
+    <partial name="_searchBar" for="SearchTerm" />
+}
 
-    <div class="row">
-        <partial name="_CategoryButtons" />
-    </div>
+<div class="container">
     <div class="row">
 
         @foreach (var product in Model.CandyProductView)

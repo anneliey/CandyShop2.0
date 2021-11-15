@@ -3,19 +3,43 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using CandyShop.Data;
 
 namespace CandyShop.Data
 {
-    public static class ProductManager
+    public class ProductManager
     {
-        public static IEnumerable<ProductModel> Search(string SearchTerm)
+        private ProductContext _context;
+
+        public IList<ProductModel> ProductModel { get; set; }
+
+        public ProductManager(ProductContext context)
+        {
+            _context = context;
+        }
+        public async Task GetDbProducts()
+        {
+            ProductModel = await _context.Products.ToListAsync();
+        }
+
+        public IEnumerable<ProductModel> Search(string SearchTerm)
         {
             if (string.IsNullOrEmpty(SearchTerm))
             {
-                return Products;
-            }
+                var dbProducts = _context.Products.ToList();
 
-            return Products.Where(p => p.Name.Contains(SearchTerm));
+                foreach(var dbProduct in dbProducts)
+                {
+                    Products.Add(dbProduct);
+                }
+
+                return (Products /*_context*/);
+            }
+            var lowercaseSearch = SearchTerm.ToLower();
+
+            return Products.Where(product => product.Name.ToLower().Contains(lowercaseSearch));
         }
         public static List<ProductModel> Products { get; set; } = new List<ProductModel>();
 

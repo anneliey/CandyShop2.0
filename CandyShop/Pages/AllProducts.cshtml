@@ -31,6 +31,53 @@
                         <a class="btn btn-secondary" asp-route-id="@product.Id" asp-page="/Cart">Add to cart</a>
                     </div>
                 </div>
-            }
-        </div>
+                <div class="add-to-cart-button">
+                    <a class="btn btn-secondary" asp-route-id="@product.Id" asp-page="/Cart">Add to cart</a>
+                </div>
+            </div>
+        }
+        @*@foreach (var product in Model.ProductView)
+
+        {
+            <div class=" col-3">
+                <a asp-route-id="@Html.DisplayFor(modelItem => product.Id) asp-page="./ProductDetails">
+                    <img class="product-thumbnail" src="~/images/@Html.DisplayFor(modelItem => product.ImageUrl) alt="image" />
+                </a>
+                <div class="product-body">
+                    <p class="all-products-title"> @Html.DisplayFor(modelItem => product.Name)</p>
+                    <p>Artikelnummer: @Html.DisplayFor(modelItem =>product.Id)</p>
+
+                </div>
+                <div class="add-to-cart-button">
+                    <a class="btn btn-secondary" asp-route-id="@Html.DisplayFor(modelItem => @product.Id)" asp-page="/Cart">Add to cart</a>
+                </div>
+            </div>
+         
+        }*@
     </div>
+    @*@foreach (var item in Model.ProductModel)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }*@
+</div>

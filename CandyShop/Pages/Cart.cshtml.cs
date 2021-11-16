@@ -16,10 +16,10 @@ namespace CandyShop.Pages
         public static List<ProductModel> CartProducts { get; set; } = GetProducts();
         public List<ProductModel> CartView { get; set; } = new List<ProductModel>();
         public List<ShippingModel> ShippingView { get; set; } = new List<ShippingModel>();
-        public double totalSum;
+        public static double totalSum;
         public static int quantity;
 
-        public static List<ProductModel> GetProducts()
+        
 
         // Ändra sen
         public string Name { get; set; }
@@ -31,7 +31,7 @@ namespace CandyShop.Pages
         public string ShippingOption { get; set; }
         public string PaymentOption { get; set; }
 
-        public void OnGet(int id)
+        public static List<ProductModel> GetProducts()
         {
             if (CartProducts == null || !CartProducts.Any())
             {

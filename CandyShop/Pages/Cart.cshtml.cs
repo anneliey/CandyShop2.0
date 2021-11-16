@@ -14,9 +14,9 @@ namespace CandyShop.Pages
     {
         public static List<ProductModel> CartProducts { get; set; } = GetProducts();
         public List<ProductModel> CartView { get; set; } = new List<ProductModel>();
-
-
         public List<ShippingModel> ShippingView { get; set; } = new List<ShippingModel>();
+        public double totalSum;
+        public static int quantity;
 
         public static List<ProductModel> GetProducts()
         {
@@ -35,9 +35,9 @@ namespace CandyShop.Pages
             UpdateQuantity(removeId, addId);
 
             CartView = CartProducts;
+            totalSum = CartProducts.Sum(product => product.Price);
 
-
-            List<Models.ShippingModel> shippingMethods = ShippingManager.GetShippingMethods();
+            List<ShippingModel> shippingMethods = ShippingManager.GetShippingMethods();
             var shippingResult = shippingMethods.ToList();
             ShippingView = shippingResult;
 
@@ -50,9 +50,7 @@ namespace CandyShop.Pages
 
             if (id != 0) {
                 CartProducts.Add(cartResult);
-
             }
-
             return CartProducts;
         }
 
@@ -70,7 +68,7 @@ namespace CandyShop.Pages
         {
             if (addId != 0)
             {
-                CartProducts = AddToCart(addId);
+                CartProducts = AddToCart(addId);             
             }
             if (removeId != 0)
             {

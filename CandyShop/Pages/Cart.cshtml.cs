@@ -59,7 +59,7 @@ namespace CandyShop.Pages
         public static List<ProductModel> RemoveFromCart(int removeId)
         {
             List<ProductModel> Products = ProductManager.AllProducts;
-            var cartResult = products.Where(product => product.Id == removeId).FirstOrDefault();
+            var cartResult = Products.Where(product => product.Id == removeId).FirstOrDefault();
 
         
             CartProducts.Remove(cartResult);

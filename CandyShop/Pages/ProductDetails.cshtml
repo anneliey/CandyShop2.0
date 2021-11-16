@@ -1,35 +1,35 @@
 ﻿@page
-@model CandyShop.Pages.ProductInformationModel
+@model CandyShop.Pages.ProductDetailsModel
 @{
 }
 
 <div class="container">
     <div class="row">
 
-        @foreach (var product in Model.ProductDetailsView)
+        @foreach (var product in Model.ProductDetailsView.Concat(Model.DbProductDetailsView))
 
         {
-        <div class="card">
-            @if (product.ImageUrl != null)
-            {
-                <img class="product-thumbnail" src="~/images/@product.ImageUrl" />
-            }
-            else
-            {
-                <img class="product-thumbnail" src="https://auctionresource.azureedge.net/blob/images/auction-images/2021-01-14/312364fa-628a-4525-becf-9124adc1e7ef.jpg?preset=740x555" />
-            }
-            <div class="product-body">
-                <p class="all-products-title"> @product.Name</p>
-                <p>Artikelnummer: @product.Id</p>
+            <div class="card">
+                @if (product.ImageUrl != null)
+                {
+                    <img class="product-thumbnail" src="~/images/@product.ImageUrl" />
+                }
+                else
+                {
+                    <img class="product-thumbnail" src="https://auctionresource.azureedge.net/blob/images/auction-images/2021-01-14/312364fa-628a-4525-becf-9124adc1e7ef.jpg?preset=740x555" />
+                }
+                <div class="product-body">
+                    <p class="all-products-title"> @product.Name</p>
+                    <p>Artikelnummer: @product.Id <br />I lager: @product.Stock</p>
 
 
+                </div>
+                <div class="add-to-cart-buttom">
+                    <a class="btn btn-secondary" asp-route-id="@product.Id" asp-page="/Cart">Add to cart</a>
+                </div>
+                <p>@product.Description</p>
             </div>
-            <div class="add-to-cart-buttom">
-                <a class="btn btn-secondary" asp-route-id="@product.Id" asp-page="/Cart">Add to cart</a>
-            </div>
-            <p>@product.Description</p>
-        </div>
-            
+
 
         }
     </div>

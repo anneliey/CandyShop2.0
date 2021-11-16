@@ -10,7 +10,7 @@
 
     <div class="row">
 
-        @foreach (var product in Model.ChipsProductView)
+        @foreach (var product in Model.ChipsProductView.Concat(Model.ChipsDbProductView))
 
         {
             <div class="col-3">
@@ -19,7 +19,7 @@
                 </a>
                 <div class="product-body">
                     <p class="all-products-title"> @product.Name</p>
-                    <p>Artikelnummer: @product.Id</p>
+                    <p>I lager: @product.Stock</p>
 
                 </div>
                 <div class="add-to-cart-buttom">

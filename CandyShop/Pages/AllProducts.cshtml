@@ -25,19 +25,12 @@
             </a>
             <div class="product-body">
                 <p class="all-products-title"> @product.Name</p>
-                <p>Artikelnummer: @product.Id</p>
+                <p>I lager @product.Stock</p>
 
             </div>
             <div class="add-to-cart-button" style="display: flex; flex-grow: 1; align-items:end;">
             <a class="btn btn-secondary" asp-route-id="@product.Id" asp-page="/Cart">Add to cart</a>
         </div>
-            
-            @*<asp:LinkButton ID="Test"
-                            OnClick="AddToCart"
-                            OnClientClick="javascript: window.open('/Cart')"
-                            runat="server" 
-                            class="btn btn-secondary" 
-                             >Add to cart</asp:LinkButton>*@
         </div>
         }
 

@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
 
-        @foreach (var product in Model.CandyProductView)
+        @foreach (var product in Model.CandyProductView.Concat(Model.CandyDbProductView))
 
         {
             <div class="col-3">
@@ -18,7 +18,7 @@
                 </a>
                 <div class="product-body">
                     <p class="all-products-title"> @product.Name</p>
-                    <p>Artikelnummer: @product.Id</p>
+                    <p>I lager: @product.Stock</p>
 
                 </div>
                 <div class="add-to-cart-buttom">

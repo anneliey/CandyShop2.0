@@ -15,9 +15,9 @@ namespace CandyShop.Pages
 
         public void OnGet(int id)
         {
-            List<Models.ProductModel> products = ProductManager.GetProducts();
+            List<ProductModel> Products = ProductManager.AllProducts;
 
-            var detailsResult = products.Where(product => product.Id == id).ToList();
+            var detailsResult = Products.Where(product => product.Id == id).ToList();
             ProductDetailsView = detailsResult;
         }
     }

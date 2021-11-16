@@ -28,7 +28,6 @@ namespace CandyShop.Pages
         public void OnGet()
         {
             ProductView = new ProductManager(_context).Search(SearchTerm);
-            //ProductModel = await _context.Products.ToListAsync();
         }
 
         public void OnPost()

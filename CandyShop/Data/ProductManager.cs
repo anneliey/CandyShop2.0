@@ -11,29 +11,50 @@ namespace CandyShop.Data
 {
     public class ProductManager
     {
-        private ProductContext _context;
-
+        private readonly ProductContext _context;
+        // Static products list
         public static List<ProductModel> Products { get; set; } = new List<ProductModel>();
+        // List of database products and static list products
+        public static List<ProductModel> AllProducts { get; set; } = new List<ProductModel>();
         public IList<ProductModel> ProductModel { get; set; }
+
 
         public ProductManager(ProductContext context)
         {
             _context = context;
         }
 
-        public IEnumerable<ProductModel> Search(string SearchTerm)
+        /// <summary>
+        /// Method to combine database product list and hardcoded product list into one list
+        /// </summary>
+        /// <returns></returns>
+        public List<ProductModel> GetAllProducts()
         {
+            //List<ProductModel> GetAllProducts = new List<ProductModel>();
+
             var dbProducts = _context.Products.ToList();
 
-            var combinedProducts = Products.Concat(dbProducts).ToList();
+            AllProducts = Products.Concat(dbProducts).ToList();
 
+            AllProducts = AllProducts.OrderBy(product => product.Name).ToList();
+
+            return AllProducts;
+        }
+        /// <summary>
+        /// Method to search for products
+        /// </summary>
+        /// <param name="SearchTerm"></param>
+        /// <returns></returns>
+        public IEnumerable<ProductModel> Search(string SearchTerm)
+        {
+            List<ProductModel> Products = AllProducts;
             if (string.IsNullOrEmpty(SearchTerm))
             {
-                return combinedProducts;
+                return AllProducts;
             }
 
             var lowercaseSearchText = SearchTerm.ToLower();
-            var filteredProducts = combinedProducts.Where(product => product.Name.ToLower().Contains(lowercaseSearchText));
+            var filteredProducts = AllProducts.Where(product => product.Name.ToLower().Contains(lowercaseSearchText));
 
             return filteredProducts;
         }
@@ -123,10 +144,5 @@ namespace CandyShop.Data
 
             return Products;
         }
-
-
-
-
-
     }
 }

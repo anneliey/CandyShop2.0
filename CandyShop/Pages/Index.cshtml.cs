@@ -11,8 +11,7 @@ using System.Threading.Tasks;
 namespace CandyShop.Pages
 {
     public class IndexModel : PageModel
-    {
-        
+    {       
         public List<ProductModel> IndexProductView { get; set; } = new List<ProductModel>();
         public string SearchTerm { get; set; }
 

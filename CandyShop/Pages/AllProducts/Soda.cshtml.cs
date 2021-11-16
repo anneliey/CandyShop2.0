@@ -16,17 +16,18 @@ namespace CandyShop.Pages
         [BindProperty]
         public string SearchTerm { get; set; }
 
-        private readonly CandyShop.Data.ProductContext _context;
+        private readonly ProductContext _context;
 
-        public SodaProductsModel(CandyShop.Data.ProductContext context)
+        public SodaProductsModel(ProductContext context)
         {
             _context = context;
         }
+        
         public void OnGet()
         {
-            List<ProductModel> products = ProductManager.GetProducts();
+            List<ProductModel> Products = ProductManager.AllProducts;
 
-            var result = products.Where(product => product.Category.Contains("Soda")).ToList();
+            var result = Products.Where(product => product.Category.Contains("Soda")).ToList();
             SodaProductView = result;
         }
         public void OnPost()

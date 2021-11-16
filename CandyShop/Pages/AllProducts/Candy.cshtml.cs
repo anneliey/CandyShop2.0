@@ -23,9 +23,9 @@ namespace CandyShop.Pages
 
         public void OnGet()
         {
-            List<ProductModel> products = ProductManager.GetProducts();
-           
-            var result = products.Where(product => product.Category.Contains("Candy")).ToList();
+            List<ProductModel> Products = ProductManager.AllProducts;
+
+            var result = Products.Where(product => product.Category.Contains("Candy")).ToList();
             CandyProductView = result;
         }
         public void OnPost()

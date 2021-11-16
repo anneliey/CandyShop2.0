@@ -1,6 +1,7 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -21,10 +22,21 @@ a {
     height: 250px;
 }
 
+.header {
+    width: 350px;
+    height: 350px;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #572cd9;
+    border-color: #5126d2;
+}
+
 .btn-primary {
     color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+    background-color: #572cd9;
+    border-color: #5126d2;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -43,7 +55,6 @@ html {
     font-size: 16px;
   }
 }
-
 .border-top {
   border-top: 1px solid #e5e5e5;
 }
@@ -68,8 +79,15 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #e4e2ff;
+    text-align: left;
+
 }
 .footer {
   position: absolute;
@@ -78,3 +96,27 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #adabc6;
+    background-color: #28293e;
+    background-clip: padding-box;
+    border: 1px solid #11111d;
+    border-radius: 6px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #32334a;
+    border: 1px solid rgba(0,0,0,.125);
+}
+

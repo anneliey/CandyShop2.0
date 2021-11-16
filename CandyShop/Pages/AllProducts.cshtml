@@ -11,7 +11,7 @@
         @foreach (var product in Model.ProductView)
 
         {
-        <div class=" col-3">
+        <div class="d-flex flex-column col-6 col-lg-3 mb-5">
             <a asp-route-id="@product.Id" asp-page="/ProductDetails">
                 @if (product.ImageUrl != null)
                 {
@@ -28,7 +28,7 @@
                 <p>Artikelnummer: @product.Id</p>
 
             </div>
-            <div class="add-to-cart-button">
+            <div class="add-to-cart-button" style="display: flex; flex-grow: 1; align-items:end;">
             <a class="btn btn-secondary" asp-route-id="@product.Id" asp-page="/Cart">Add to cart</a>
         </div>
             

@@ -6,18 +6,25 @@
     <div class="container py-5 mb5">
         
         <h1 class="mb-5">Information and shipping</h1>
-
+        
+    </div>
+ 
         <div class="row py-4">
-            <div class="col-md-4 order-md-2 mb-4">
+            <div class="col-md-5 order-md-2 mb-5">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                     <span class="text-muted">Your cart</span>
                     @*//Hur många varor som är i korgen*@
+
                     <span class="badge badge-primary badge-pill"></span>
                 </h4>
-                <ul class="list-group mb-3">
+                <ul class="list-group mb-4">
                     @foreach (var product in Model.CartView)
                     {
                         <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <a class="btn btn-secondary" asp-route-removeId="@product.Id" asp-page="/Cart">-</a>
+                                <a class="btn btn-secondary" asp-route-addId="@product.Id" asp-page="/Cart">+</a>
+                            </div>
                             <div>
                                 <h6 class="my-0">@product.Name</h6>
                             </div>
@@ -27,12 +34,13 @@
                     }
                     <li class="list-group-item d-flex justify-content-between">
                         @*//Totala summan*@
-                        <span>Total (SEK)</span>
+                        <span>@CartModel.totalSum</span>
                         <strong></strong>
                     </li>
+                    <button onclick="location.href = 'https://localhost:5001/AllProducts';" id="myButton" class="btn btn-secondary">Forsätt shoppa</button>
                 </ul>
             </div>
-            <div class="col-md-8 order-md-1">
+            <div class="col-md-6 order-md-1">
                 <h4 class="mb-3">Billing address</h4>
                 <form class="needs-validation" novalidate>
                     <div class="row">
@@ -107,97 +115,4 @@
                 </form>
             </div>
         </div>
-    </div>
 </body>
-
-
-@*<div class="container">
-        <h1 class="text-center">Information and Shipping</h1>
-        <div class="cart-title">
-            <h5>1. I din shoppingbag</h5>
-
-        </div>
-        @foreach (var product in Model.CartView)
-        {
-            <div class="col-3">
-                <img class="product-thumbnail" src="~/images/@product.ImageUrl" />
-                <div class="product-body">
-                    <p class="all-products-title"> @product.Name</p>
-                    <p>Artikelnummer: @product.Id</p>
-
-                </div>
-            </div>
-        }
-
-        <h3>Enter your information below: </h3>
-        <form method="post">
-            <label>Name:</label><br />
-            <input type="text" asp-for="@Model.Name" /><br />
-
-
-
-            <label>E-mail:</label><br />
-            <input type="text" asp-for="@Model.Email" /><br />
-
-
-
-            <label>Phone:</label><br />
-            <input type="number" asp-for="@Model.Number" /><br />
-
-
-
-            <label>Adress:</label><br />
-            <input type="text" asp-for="@Model.Adress" /><br />
-
-
-
-            <label>City:</label><br />
-            <input type="text" asp-for="@Model.City" /><br />
-
-
-
-            <label>Postal code:</label><br />
-            <input type="text" asp-for="@Model.PostalCode" /><br />
-
-
-
-            <br /><h3>Choose your shipping option: </h3>
-            <input type="radio" asp-for="@Model.ShippingOption" name="ShippingOption" id="opt1" value="PostNord" /><label for="opt1">PostNord (39 SEK)</label><br />
-            <input type="radio" asp-for="@Model.ShippingOption" name="ShippingOption" id="opt2" value="DHL" /><label for="opt2">DHL (99 SEK)</label><br />
-
-
-
-            <br /><h3>Choose your payment method: </h3>
-            <input type="radio" asp-for="@Model.PaymentOption" name="PaymentOption" id="opt1" value="Debit Card" /><label for="opt1">Card Payment (0 SEK)</label><br />
-            <input type="radio" asp-for="@Model.PaymentOption" name="PaymentOption" id="opt3" value="PayPal" /><label for="opt1">PayPal (0 SEK)</label><br />
-            <input type="radio" asp-for="@Model.PaymentOption" name="PaymentOption" id="opt2" value="Klarna (29 SEK)" /><label for="opt1">Klarna (29 SEK)</label><br />
-
-
-
-
-            <br /><input type="submit" value="Confirm Order" />
-        </form>
-    </div>*@
-
-@*<h5 class="shipping-title">2. Välj fraktmetod</h5>
-        <div class="">
-
-            <form method="post">
-                @foreach (var shippingMethod in Model.ShippingView)
-                {
-                    <div>
-                        <input asp-for="@shippingMethod.ShippingPrice" name="Shipping" class="" id="@shippingMethod.ShippingId" type="radio" value="@shippingMethod.ShippingId">
-                        <label for="@shippingMethod.ShippingId">@shippingMethod.ShippingName @shippingMethod.ShippingPrice kr</label>
-
-                    </div>
-                }
-                <button class="btn btn-secondary" type="submit">Klar</button>
-            </form>
-        </div>
-        <br />
-        <div class="row">
-            <a class="btn btn-dark" asp-page="/OrderConfirmation">Betala med Swish</a>
-            <a class="btn btn-dark" asp-page="/OrderConfirmation">Betala med Klarna</a>
-        </div>
-
-    </div>*@

@@ -16,20 +16,21 @@ namespace CandyShop.Pages
 
         [BindProperty]
         public string SearchTerm { get; set; }
-        private readonly CandyShop.Data.ProductContext _context;
+        private readonly ProductContext _context;
 
-        public AllProductsModel(CandyShop.Data.ProductContext context)
+        public AllProductsModel(ProductContext context)
         {
             _context = context;
         }
 
         public IList<ProductModel> ProductModel { get; set; }
 
-        public async Task OnGetAsync()
+        public void OnGet()
         {
             ProductView = new ProductManager(_context).Search(SearchTerm);
             //ProductModel = await _context.Products.ToListAsync();
         }
+
         public void OnPost()
         {
             ProductView = new ProductManager(_context).Search(SearchTerm);

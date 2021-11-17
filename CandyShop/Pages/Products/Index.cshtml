@@ -12,27 +12,27 @@
 </p>
 <table class="table text-light">
     <thead>
-    <tr>
-        @*<th>
+        <tr>
+            @*<th>
             @Html.DisplayNameFor(model => model.ProductModel[0].Id)
         </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.ProductModel[0].Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductModel[0].Category)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductModel[0].Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductModel[0].Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductModel[0].Stock)
-        </th>
-        <th></th>
-    </tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductModel[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductModel[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductModel[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductModel[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductModel[0].Stock)
+            </th>
+            <th></th>
+        </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.ProductModel) {

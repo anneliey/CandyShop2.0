@@ -13,45 +13,41 @@ namespace CandyShop.Data
     {
         private ProductContext _context;
 
+        public static List<ProductModel> Products { get; set; } = new List<ProductModel>();
         public IList<ProductModel> ProductModel { get; set; }
 
         public ProductManager(ProductContext context)
         {
             _context = context;
         }
-        public async Task GetDbProducts()
-        {
-            ProductModel = await _context.Products.ToListAsync();
-        }
 
         public IEnumerable<ProductModel> Search(string SearchTerm)
         {
+            var dbProducts = _context.Products.ToList();
+
+            var combinedProducts = Products.Concat(dbProducts).ToList();
+
             if (string.IsNullOrEmpty(SearchTerm))
             {
-                var dbProducts = _context.Products.ToList();
-
-                foreach(var dbProduct in dbProducts)
-                {
-                    Products.Add(dbProduct);
-                }
-
-                return (Products /*_context*/);
+                return combinedProducts;
             }
-            var lowercaseSearch = SearchTerm.ToLower();
 
-            return Products.Where(product => product.Name.ToLower().Contains(lowercaseSearch));
+            var lowercaseSearchText = SearchTerm.ToLower();
+            var filteredProducts = combinedProducts.Where(product => product.Name.ToLower().Contains(lowercaseSearchText));
+
+            return filteredProducts;
         }
-        public static List<ProductModel> Products { get; set; } = new List<ProductModel>();
-
+        
         public static List<ProductModel> GetProducts()
         {
+          
             if (!Products.Any())
             {
                 Products = new List<ProductModel>()
                 {
                     new ProductModel()
                     {
-                        Id = 1,
+                        Id = 100,
                         Name = "Bilar", 
                         Category = "Candy",
                         Description = "Glukossirap, socker, stärkelse, gelatin, invertsockersirap, syra (E270), " +
@@ -60,27 +56,30 @@ namespace CandyShop.Data
                                       "Fett 0.2 gram varav mättat fett 0.2 gram Kolhydrat 83.0 gram varav sockerarter 57.0 gram " +
                                       "Protein 4.4 gram Salt 0.01 gram",
                         Price = 10, 
-                        ImageUrl = "Bilar.png"
+                        ImageUrl = "Bilar.png",                        
+                        Stock = 10,
                     },
 
                     new ProductModel()
                     {
-                        Id = 2,
-                        Name = "Coca-Cola 33 cl",
+                        Id = 200,
+                        Name = "Coca-Cola Sleek Can 33 cl",
                         Category = "Soda",
                         Description = "Priset är inklusive pant",
                         Price = 12,
-                        ImageUrl = "Cola-Burk.png"
+                        ImageUrl = "Cola-Burk.png",
+                        Stock = 10,
                     },
 
                     new ProductModel()
                     {
-                        Id = 3,
-                        Name = "Coca-Cola Vanilla Zero 33 cl",
+                        Id = 300,
+                        Name = "Coca-Cola Vanilla Zero Sleek Can 33 cl",
                         Category = "Soda",
                         Description = "Priset är inklusive pant",
                         Price = 12,
-                        ImageUrl = "ColaVanilj-Burk.png"
+                        ImageUrl = "ColaVanilj-Burk.png",
+                        Stock = 10,
                     },
 
                     new ProductModel()
@@ -96,25 +95,27 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 5,
+                        Id = 500,
                         Name = "Malaco Djungelvrål 80 gr",
                         Category = "Candy",
                         Description = "Näringsvärde per 100.0 gram Energi 345.0/1475.0 kilokalori/kilojoule Fett 0.0 gram varav mättat fett 0.0 gram " +
                                       "Kolhydrat 91.0 gram varav sockerarter 47.0 gram Protein 0.4 gram Salt 0.18 gram",
                         Price = 10,
-                        ImageUrl = "Djungelvral.png"
+                        ImageUrl = "Djungelvral.png",
+                        Stock = 10,
                     },
 
                     new ProductModel()
                     {
-                        Id = 6,
+                        Id = 600,
                         Name = "Estrella Cheddar & Sourcream 175 g",
                         Category = "Chips",
                         Description = "Potatis, solros-/rapsolja, kryddblandning (salt, VASSLEpulver (från MJÖLK), socker, lökpulver, MJÖLKprotein, " +
                                       "druvsocker, OSTpulver 6% (varav 60% Cheddar), LAKTOS, syra (mjölk- och citronsyra), jästextrakt, vitlök, " +
                                       "persilja, naturlig arom, färgämne (paprikaextrakt)).",
                         Price = 20,
-                        ImageUrl = "EstrellaCheddarSourcream.png"
+                        ImageUrl = "EstrellaCheddarSourcream.png",
+                        Stock = 10,
                     },
 
                     new ProductModel()
@@ -124,7 +125,8 @@ namespace CandyShop.Data
                         Category = "Soda",
                         Description = "Priset är inklusive pant",
                         Price = 12,
-                        ImageUrl = "FantaExotic-Burk.png"
+                        ImageUrl = "FantaExotic-Burk.png",
+                        Stock = 10,
                     },
 
                     new ProductModel()
@@ -136,7 +138,8 @@ namespace CandyShop.Data
                         "safflor, äpple, citron, rättika, sötpotatis, morot, svarta vinbär, hibiskus; invertsockersirap; arom; " +
                         "palmolja; ytbehandlingsmedel: bivax vitt och gult, karnaubavax.",
                         Price = 10,
-                        ImageUrl = "HariboNappar.png"
+                        ImageUrl = "HariboNappar.png",
+                        Stock = 10,
                     },
                     new ProductModel()
                     {
@@ -148,7 +151,8 @@ namespace CandyShop.Data
                         "passionsfrukt, vindruvor, nässla, spenat, äpple, fläder, aronia), aromämnen, karamelliserat socker, " +
                         "fruktsocker, invertsockersirap.",
                         Price = 10,
-                        ImageUrl = "HariboNapparSur.png"
+                        ImageUrl = "HariboNapparSur.png",
+                        Stock = 10,
                     },
                      new ProductModel()
                     {
@@ -160,7 +164,19 @@ namespace CandyShop.Data
                         "svarta vinbär, kiwi, citron, aronia, mango, passionsfrukt, rättika, sötpotatis, morot, hibiskus, vindruva; invertsockersirap; " +
                         "karamelliserat socker; arom; extrakt av fläderbär; palmolja; ytbehandlingsmedel: bivax vitt och gult, karnaubavax..",
                         Price = 10,
-                        ImageUrl = "Haribo-Starmix.png"
+                        ImageUrl = "Haribo-Starmix.png",
+                        Stock = 10,
+                    },
+                      new ProductModel()
+                    {
+                        Id = 12,
+                        Name = "Estrella Jordnötsringar 175 gr",
+                        Category = "Chips",
+                        Description = " Jordnötssmör 29% (malda rostade jordnötter, druvsocker, salt), majsmjöl, rismjöl, solros-/rapsolja, " +
+                        "kornmjöl, rågmjöl, socker, salt, druvsocker, vetemjöl.",
+                        Price = 20,
+                        ImageUrl = "Jordnotsringar.jpg",
+                        Stock = 10,
                     },
 
                        new ProductModel()
@@ -172,7 +188,8 @@ namespace CandyShop.Data
                         "maltodextrin, lökpulver, syra (mjölksyra, citronsyra, äpplesyra), jästextrakt, vitlök, paprika, kaliumklorid, " +
                         "krydda (svartpeppar, chili), persilja, paprikaextrakt, naturlig arom), majsstärkelse, potatisstärkelse, grönpepparpulver.",
                         Price = 15,
-                        ImageUrl = "Linschips.png"
+                        ImageUrl = "Linschips.png",
+                        Stock = 10,
                     },
                 };
             }

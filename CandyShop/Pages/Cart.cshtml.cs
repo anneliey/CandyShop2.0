@@ -60,25 +60,12 @@ namespace CandyShop.Pages
             List<ProductModel> products = ProductManager.GetProducts();
             var cartResult = products.Where(product => product.Id == id).FirstOrDefault();
 
-            foreach (var item in CartProducts)
-            {
-
-            if(quantity < item.Stock)
-                {
-                if(CartProducts.Contains(item))
-                    {
-                    quantity++;
-                    item.Stock--;
-                    }
-                }              
                 if (id != 0)
                 {
                     CartProducts.Add(cartResult);
-                    quantity++;
-                    item.Stock--;    
                 }
 
-            }
+            
             return CartProducts;
         }
 

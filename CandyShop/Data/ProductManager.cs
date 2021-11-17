@@ -144,6 +144,7 @@ namespace CandyShop.Data
                         Price = 10,
                         ImageUrl = "Fizzypop - kopia.jpg",
                         Stock = 10,
+                        MaxStock = 10
                     },
 
                     new ProductModel()
@@ -157,6 +158,7 @@ namespace CandyShop.Data
                         Price = 10,
                         ImageUrl = "HariboNappar - kopia.jpg",
                         Stock = 10,
+                        MaxStock = 10
                     },
                     new ProductModel()
                     {
@@ -170,6 +172,7 @@ namespace CandyShop.Data
                         Price = 10,
                         ImageUrl = "HariboNapparSur - kopia.jpg",
                         Stock = 10,
+                        MaxStock = 10
                     },
                      new ProductModel()
                     {
@@ -183,6 +186,7 @@ namespace CandyShop.Data
                         Price = 10,
                         ImageUrl = "Haribo-Starmix.jpg",
                         Stock = 10,
+                        MaxStock = 10
                     },
                       new ProductModel()
                     {
@@ -194,6 +198,7 @@ namespace CandyShop.Data
                         Price = 20,
                         ImageUrl = "Jordnotsringar.jpg",
                         Stock = 10,
+                        MaxStock = 10
                     },
                        new ProductModel()
                     {
@@ -206,6 +211,7 @@ namespace CandyShop.Data
                         Price = 15,
                         ImageUrl = "Linschips.jpg",
                         Stock = 10,
+                        MaxStock = 10
                     },
                 };
             }

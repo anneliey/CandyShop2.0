@@ -43,7 +43,6 @@ namespace CandyShop.Pages
 
         public void OnGet(int id, int removeId, int addId)
         {
-
             AddToCart(id);
             UpdateQuantity(removeId, addId);
 
@@ -61,8 +60,24 @@ namespace CandyShop.Pages
             List<ProductModel> products = ProductManager.GetProducts();
             var cartResult = products.Where(product => product.Id == id).FirstOrDefault();
 
-            if (id != 0) {
-                CartProducts.Add(cartResult);
+            foreach (var item in CartProducts)
+            {
+
+            if(quantity < item.MaxStock)
+                {
+                if(CartProducts.Contains(item))
+                    {
+                    quantity++;
+                    item.Stock--;
+                    }
+                }              
+                if (id != 0)
+                {
+                    CartProducts.Add(cartResult);
+                    quantity++;
+                    item.Stock--;    
+                }
+
             }
             return CartProducts;
         }
@@ -96,9 +111,12 @@ namespace CandyShop.Pages
         }
         public static void UpdateQuantity(int removeId, int addId)
         {
+            List<ProductModel> products = ProductManager.GetProducts();
             if (addId != 0)
             {
-                CartProducts = AddToCart(addId);             
+                CartProducts = AddToCart(addId);
+                
+                
             }
             if (removeId != 0)
             {

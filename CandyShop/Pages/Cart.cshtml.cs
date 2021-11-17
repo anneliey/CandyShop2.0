@@ -43,13 +43,14 @@ namespace CandyShop.Pages
 
         public void OnGet(int id, int removeId, int addId)
         {
+
             AddToCart(id);
             UpdateQuantity(removeId, addId);
 
             CartView = CartProducts;
-            totalSum = CartProducts.Sum(product => product.Price);
 
-            List<ShippingModel> shippingMethods = ShippingManager.GetShippingMethods();
+
+            List<Models.ShippingModel> shippingMethods = ShippingManager.GetShippingMethods();
             var shippingResult = shippingMethods.ToList();
             ShippingView = shippingResult;
 
@@ -60,12 +61,12 @@ namespace CandyShop.Pages
             List<ProductModel> products = ProductManager.GetProducts();
             var cartResult = products.Where(product => product.Id == id).FirstOrDefault();
 
-                if (id != 0)
-                {
-                    CartProducts.Add(cartResult);
-                }
+            if (id != 0)
+            {
+                CartProducts.Add(cartResult);
 
-            
+            }
+
             return CartProducts;
         }
 
@@ -74,12 +75,22 @@ namespace CandyShop.Pages
             List<ProductModel> products = ProductManager.GetProducts();
             var cartResult = products.Where(product => product.Id == removeId).FirstOrDefault();
 
-        
+
             CartProducts.Remove(cartResult);
-       
+
             return CartProducts;
         }
-        
+        public static void UpdateQuantity(int removeId, int addId)
+        {
+            if (addId != 0)
+            {
+                CartProducts = AddToCart(addId);
+            }
+            if (removeId != 0)
+            {
+                CartProducts = RemoveFromCart(removeId);
+            }
+        }
         public IActionResult OnPost()
         {
             if (ShippingOption == "DHL")
@@ -95,20 +106,6 @@ namespace CandyShop.Pages
                 //CartManager.TotalAmount += 29;
             }
             return RedirectToPage("/Confirmation", new { Name, Email, Number, Adress, City, PostalCode, ShippingOption, PaymentOption });
-        }
-        public static void UpdateQuantity(int removeId, int addId)
-        {
-            List<ProductModel> products = ProductManager.GetProducts();
-            if (addId != 0)
-            {
-                CartProducts = AddToCart(addId);
-                
-                
-            }
-            if (removeId != 0)
-            {
-                CartProducts = RemoveFromCart(removeId);
-            }
         }
 
     }

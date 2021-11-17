@@ -54,7 +54,11 @@ namespace CandyShop.Pages
             List<Models.ShippingModel> shippingMethods = ShippingManager.GetShippingMethods();
             var shippingResult = shippingMethods.ToList();
             ShippingView = shippingResult;
+            
+        }
 
+        public void EmptyCart() {
+            CartView.Clear();
         }
 
         public static List<ProductModel> AddToCart(int id)
@@ -104,10 +108,11 @@ namespace CandyShop.Pages
             {
                 //CartManager.TotalAmount += 39;
             }
-            if (PaymentOption == "Klarna (29 SEK)")
+            if (PaymentOption == "credit")
             {
                 //CartManager.TotalAmount += 29;
             }
+
             return RedirectToPage("/Confirmation", new { Name, Email, Number, Adress, City, PostalCode, ShippingOption, PaymentOption });
         }
 

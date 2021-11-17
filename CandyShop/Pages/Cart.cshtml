@@ -12,7 +12,7 @@
         <div class="row py-4">
             <div class="col-md-5 order-md-2 mb-5">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-muted">Your cart</span>
+                    <span class="text-muted">Dina varor</span>
                     @*//Hur många varor som är i korgen*@
 
                     <span class="badge badge-primary badge-pill"></span>
@@ -34,7 +34,7 @@
                     }
                     <li class="list-group-item d-flex justify-content-between">
                         @*//Totala summan*@
-                        <span>@CartModel.totalSum</span>
+                        <span>Total @CartModel.totalSum kr (inkl. Moms och Frakt)</span>
                         <strong></strong>
                     </li>
                     <button onclick="location.href = 'https://localhost:5001/AllProducts';" id="myButton" class="btn btn-secondary">Forsätt shoppa</button>
@@ -97,20 +97,30 @@
 
                     <h4 class="mb-3">Payment</h4>
                     <div class="d-block my-3">
+                        <!--<div class="custom-control custom-radio">
+                            <input asp-for="@Model.PaymentOption" name="paymentMethod" id="credit" value="credit" type="radio"
+                                   class="custom-control-input" checked required>
+                            <label class="custom-control-label" for="credit">Credit card</label>-->
+                            @*<input asp-for="@Model.PaymentOption" id="credit" name="paymentMethod" value="credit" type="radio">
+                            <label class="custom-control-label" for="credit">Credit card</label>*@
+                        <!--</div>-->
                         <div class="custom-control custom-radio">
-                            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                            <label class="custom-control-label" for="credit">Credit card</label>
-                        </div>
-                        <div class="custom-control custom-radio">
-                            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <input asp-for="@Model.PaymentOption" name="PaymentMethod" id="debit" value="debit" type="radio"
+                                   class="custom-control-input" checked required>
                             <label class="custom-control-label" for="debit">Debit card</label>
+                            @*<input asp-for="@Model.PaymentOption" id="debit" name="paymentMethod" value="debit" type="radio">
+                            <label class="custom-control-label" for="debit">Debit card</label>*@
                         </div>
                         <div class="custom-control custom-radio">
-                            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <input asp-for="@Model.PaymentOption" name="PaymentMethod" id="paypal" value="paypal" type="radio"
+                                   class="custom-control-input" checked required>
+                            <label class="custom-control-label" for="paypal">Paypal</label>
+                            @*<input asp-for="@Model.PaymentOption" id="paypal" name="paymentMethod" value="paypal" type="radio">
                             <label class="custom-control-label" for="paypal">PayPal</label>
-                        </div>
+                        </div>*@
+
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+                        <button class="btn btn-primary btn-lg btn-block" asp-route-id="@Model.CartView" asp-page="OrderConfirmation" type="submit">Continue to checkout</button>
                     </div>
                 </form>
             </div>

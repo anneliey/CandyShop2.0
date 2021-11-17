@@ -63,7 +63,7 @@ namespace CandyShop.Pages
             foreach (var item in CartProducts)
             {
 
-            if(quantity < item.MaxStock)
+            if(quantity < item.Stock)
                 {
                 if(CartProducts.Contains(item))
                     {

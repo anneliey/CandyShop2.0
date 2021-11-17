@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-6 order-md-1">
                 <h4 class="mb-3">Billing address</h4>
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" method="Post">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="firstName">Name</label>
@@ -59,7 +59,7 @@
 
                     <div class="mb-3">
                         <label for="number">Phone Number</label>
-                        <input type="email" asp-for="@Model.Number" class="form-control" id="email" placeholder="">
+                        <input type="number" asp-for="@Model.Number" class="form-control" id="number" placeholder="">
                         <div class="invalid-feedback">
                             Please enter a valid phone number.
                         </div>
@@ -85,12 +85,12 @@
                     <div class="d-block my-3">
                         <div class="custom-control custom-radio">
                             <input asp-for="@Model.ShippingOption" name="ShippingOption" id="opt1" value="PostNord" type="radio"
-                                   class="custom-control-input" checked required>
+                                   class="custom-control-input" required>
                             <label class="custom-control-label" for="opt1">PostNord (39 SEK)</label>
                         </div>
                         <div class="custom-control custom-radio">
                             <input asp-for="@Model.ShippingOption" name="ShippingOption" id="opt2" value="DHL" type="radio"
-                                   class="custom-control-input" checked required>
+                                   class="custom-control-input" required>
                             <label class="custom-control-label" for="opt2">DHL (99 SEK)</label>
                         </div>
                     </div>
@@ -106,21 +106,21 @@
                         <!--</div>-->
                         <div class="custom-control custom-radio">
                             <input asp-for="@Model.PaymentOption" name="PaymentMethod" id="debit" value="debit" type="radio"
-                                   class="custom-control-input" checked required>
+                                   class="custom-control-input" required>
                             <label class="custom-control-label" for="debit">Debit card</label>
-                            @*<input asp-for="@Model.PaymentOption" id="debit" name="paymentMethod" value="debit" type="radio">
+                            @*<input asp-for="@CartModel.PaymentOption" id="debit" name="paymentMethod" value="debit" type="radio">
                             <label class="custom-control-label" for="debit">Debit card</label>*@
                         </div>
                         <div class="custom-control custom-radio">
                             <input asp-for="@Model.PaymentOption" name="PaymentMethod" id="paypal" value="paypal" type="radio"
-                                   class="custom-control-input" checked required>
+                                   class="custom-control-input" required>
                             <label class="custom-control-label" for="paypal">Paypal</label>
-                            @*<input asp-for="@Model.PaymentOption" id="paypal" name="paymentMethod" value="paypal" type="radio">
+                            @*<input asp-for="@CartModel.PaymentOption" id="paypal" name="paymentMethod" value="paypal" type="radio">
                             <label class="custom-control-label" for="paypal">PayPal</label>
                         </div>*@
 
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" asp-route-id="@Model.CartView" asp-page="OrderConfirmation" type="submit">Continue to checkout</button>
+                        <input class="btn btn-primary btn-lg btn-block" @*asp-page="OrderConfirmation"*@ value="Continue to checkout"type="submit"/>
                     </div>
                 </form>
             </div>

@@ -18,10 +18,6 @@ namespace CandyShop.Pages
         public List<ShippingModel> ShippingView { get; set; } = new List<ShippingModel>();
         public static double totalSum { get; set; }
         public static int quantity;
-
-        
-
-        // Ändra sen
         public string Name { get; set; }
         public string Email { get; set; }
         public string Number { get; set; }
@@ -30,6 +26,10 @@ namespace CandyShop.Pages
         public string PostalCode { get; set; }
         public string ShippingOption { get; set; }
         public string PaymentOption { get; set; }
+
+
+
+        // Ändra sen
 
         public static List<ProductModel> GetProducts()
         {
@@ -100,16 +100,16 @@ namespace CandyShop.Pages
         }
         public IActionResult OnPost()
         {
-            if (ShippingOption == "DHL")
+            if (ShippingOption.Contains("DHL"))
             {
                 totalSum += 99;
             }
-            else
+            else if (ShippingOption.Contains("PostNord"))
             {
                 totalSum += 39;
             }
 
-            return RedirectToPage("/Confirmation", new { Name, Email, Number, Adress, City, PostalCode, ShippingOption, PaymentOption });
+            return RedirectToPage("/OrderConfirmation", new { Name, Email, Number, Adress, City, PostalCode, ShippingOption, PaymentOption });
         }
 
     }

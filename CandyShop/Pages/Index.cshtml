@@ -14,7 +14,7 @@
 </div>
 
     <div class="container">
-        <h1 class="text-center"><strong>『Våra bästsäljare』</strong></h1>
+        @*<h1 class="text-center"><strong>『Våra bästsäljare』</strong></h1>
   
             <div class="row justify-content-center">
                 @foreach (var product in Model.IndexProductView)
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     }
-                </div>
+                </div>*@
     
         <h1 class="text-center"><strong>『Nya produkter』</strong></h1>
        
@@ -49,7 +49,7 @@
             </div>
         </div>
     
-    @*<div id="imageCarousel" class="carousel slide" data-ride="carousel">
+    <div id="imageCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="images/Slide1.jpg" alt="First slide">
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-center">
+        @*<div class="d-flex justify-content-center">
             <div class="row">
                 @foreach (var product in Model.IndexProductView)
                 {

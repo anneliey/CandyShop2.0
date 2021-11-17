@@ -5,6 +5,7 @@
 <body>
     <div class="container py-5 mb5">
 
+<<<<<<< Updated upstream
         <h1 class="mb-5">Tack för din order!</h1>
 
     </div>
@@ -66,4 +67,73 @@
                 </div>
             </div>
             </div>
+=======
+        <h1 class="mb-5">Tack för beställningen!</h1>
+
+            <div class="col-md-4 order-md-2 mb-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Dina varor</span>
+                    @*//Hur många varor som är i korgen*@
+
+                    <span class="badge badge-primary badge-pill"></span>
+                </h4>
+                <ul class="list-group mb-3">
+                    @foreach (var product in Model.CartProducts)
+                    {
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">@product.Name</h6>
+                            </div>
+                            @*//Pris*@
+                            <span class="text-muted">@product.Price kr</span>
+                        </li>
+                    }
+                    <li class="list-group-item d-flex justify-content-between">
+                        @*//Totala summan*@
+                        <span>Total @CartModel.totalSum kr</span>
+                        <strong></strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    <div class="row py-4">
+        <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Dina varor skickas till: </h4>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="firstName">Name</label>
+                    <h4 class="mb-3">@Model.Name</h4>
+                </div>
+            </div>
+            <div class="mb-3">
+                <h4 for="email">Email </h4>
+                <label class="mb-3">@Model.Email</label>
+            </div>
+            <div class="mb-3">
+                <h4 for="number">Phone Number</h4>
+                <label class="mb-3">@Model.Number</label>
+            </div>
+            <div class="mb-3">
+                <h4 for="number">Phone Number</h4>
+                <label class="mb-3">@Model.Number</label>
+            </div>
+
+            <div class="mb-3">
+                <h4 for="address">Address</h4>
+                <label class="mb-3">@Model.Adress</label>
+            </div>
+
+            <div class="mb-3">
+                <h4 for="city">City</h4>
+                <label class="mb-3">@Model.City</label>
+            </div>
+
+            <h4 class="mb-3">Shipping</h4>
+            <div class="d-block my-3">
+                <h4 class="mb-3">@Model.PaymentOption</h4>
+            </div>
+        </div>
+       </div>
+
+>>>>>>> Stashed changes
 </body>

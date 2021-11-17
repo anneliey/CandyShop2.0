@@ -2,4 +2,68 @@
 @model CandyShop.Pages.OrderConfirmationModel
 @{
 }
-<h3>Tack för beställningen! (Orderid)</h3>
+<body>
+    <div class="container py-5 mb5">
+
+        <h1 class="mb-5">Tack för din order!</h1>
+
+    </div>
+
+    <div class="row py-4">
+        <div class="col-md-4 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Your cart</span>
+                <span class="badge badge-primary badge-pill"></span>
+            </h4>
+            <ul class="list-group mb-3">
+                @foreach (var product in Model.CartProducts)
+                {
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">@product.Name</h6>
+                        </div>
+                        @*//Pris*@
+                        <span class="text-muted">@product.Price kr</span>
+                    </li>
+                }
+                <li class="list-group-item d-flex justify-content-between">
+                    @*//Totala summan*@
+                    <span>Total @CartModel.totalSum kr (Inkl. Moms)</span>
+                    <strong></strong>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Vi skickar varorna till: </h4>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <h4 for="firstName">Namn</h4>
+                    <label>@Model.Name</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h4 for="email">Email</h4>
+                    <label>@Model.Email</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h4 for="number">Telefonnummer</h4>
+                    <label>@Model.Number</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h4 for="adress">Adress</h4>
+                    <label>@Model.Adress</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h4 for="city">Stad</h4>
+                    <label>@Model.City</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h4 for="shippingOption">Frakt</h4>
+                    <label>@Model.ShippingOption</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h4 for="paymentOption">Betalsätt</h4>
+                    <label>@Model.PaymentOption</label>
+                </div>
+            </div>
+            </div>
+</body>

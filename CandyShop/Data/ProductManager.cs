@@ -56,7 +56,8 @@ namespace CandyShop.Data
                                       "Fett 0.2 gram varav mättat fett 0.2 gram Kolhydrat 83.0 gram varav sockerarter 57.0 gram " +
                                       "Protein 4.4 gram Salt 0.01 gram",
                         Price = 10, 
-                        ImageUrl = "Bilar.jpg"
+                        ImageUrl = "Bilar.jpg",
+                        Stock = 10,
                     },
 
                     new ProductModel()
@@ -66,7 +67,8 @@ namespace CandyShop.Data
                         Category = "Soda",
                         Description = "Priset är inklusive pant",
                         Price = 12,
-                        ImageUrl = "Cola-Burk.jpg"
+                        ImageUrl = "Cola-Burk.jpg",
+                        Stock = 10,
                     },
 
                     new ProductModel()
@@ -76,7 +78,8 @@ namespace CandyShop.Data
                         Category = "Soda",
                         Description = "Priset är inklusive pant",
                         Price = 12,
-                        ImageUrl = "ColaVanilj-Burk.jpg"
+                        ImageUrl = "ColaVanilj-Burk.jpg",
+                        Stock = 10,
                     },
 
                     new ProductModel()
@@ -91,7 +94,8 @@ namespace CandyShop.Data
                                       "raps-/kokosolja, rökarom, emulgeringsmedel (mono- och diglyceriders ättiksyraestrar), arom, " +
                                       "förtjockningsmedel (gummi arabicum).",
                         Price = 20,
-                        ImageUrl = "CrispyBacon.jpg"
+                        ImageUrl = "CrispyBacon.jpg",
+                        Stock = 10,
                     },
 
                     new ProductModel()
@@ -102,7 +106,8 @@ namespace CandyShop.Data
                         Description = "Näringsvärde per 100.0 gram Energi 345.0/1475.0 kilokalori/kilojoule Fett 0.0 gram varav mättat fett 0.0 gram " +
                                       "Kolhydrat 91.0 gram varav sockerarter 47.0 gram Protein 0.4 gram Salt 0.18 gram",
                         Price = 10,
-                        ImageUrl = "Djungelvral.jpg"
+                        ImageUrl = "Djungelvral.jpg",
+                        Stock = 10,
                     },
 
                     new ProductModel()
@@ -114,7 +119,8 @@ namespace CandyShop.Data
                                       "druvsocker, OSTpulver 6% (varav 60% Cheddar), LAKTOS, syra (mjölk- och citronsyra), jästextrakt, vitlök, " +
                                       "persilja, naturlig arom, färgämne (paprikaextrakt)).",
                         Price = 20,
-                        ImageUrl = "EstrellaCheddarSourcream.jpg"
+                        ImageUrl = "EstrellaCheddarSourcream.jpg",
+                        Stock = 10,
                     },
 
                     new ProductModel()
@@ -124,7 +130,8 @@ namespace CandyShop.Data
                         Category = "Soda",
                         Description = "Priset är inklusive pant",
                         Price = 12,
-                        ImageUrl = "FantaExotic-Burk.jpg"
+                        ImageUrl = "FantaExotic-Burk.jpg",
+                        Stock = 10,
                     },
 
                     new ProductModel()
@@ -135,7 +142,8 @@ namespace CandyShop.Data
                         Description = "Glukossirap, socker/sukker, vatten/vand, gelatin, syra (citronsyra), " +
                         "färgämnen/farvestoffer (e170, e120, e133), fullhärdat/helt hærdet/fullherdet palmfett, arom..",
                         Price = 10,
-                        ImageUrl = "Fizzypop - kopia.jpg"
+                        ImageUrl = "Fizzypop - kopia.jpg",
+                        Stock = 10,
                     },
 
                     new ProductModel()
@@ -147,7 +155,8 @@ namespace CandyShop.Data
                         "safflor, äpple, citron, rättika, sötpotatis, morot, svarta vinbär, hibiskus; invertsockersirap; arom; " +
                         "palmolja; ytbehandlingsmedel: bivax vitt och gult, karnaubavax.",
                         Price = 10,
-                        ImageUrl = "HariboNappar - kopia.jpg"
+                        ImageUrl = "HariboNappar - kopia.jpg",
+                        Stock = 10,
                     },
                     new ProductModel()
                     {
@@ -159,7 +168,8 @@ namespace CandyShop.Data
                         "passionsfrukt, vindruvor, nässla, spenat, äpple, fläder, aronia), aromämnen, karamelliserat socker, " +
                         "fruktsocker, invertsockersirap.",
                         Price = 10,
-                        ImageUrl = "HariboNapparSur - kopia.jpg"
+                        ImageUrl = "HariboNapparSur - kopia.jpg",
+                        Stock = 10,
                     },
                      new ProductModel()
                     {
@@ -171,7 +181,8 @@ namespace CandyShop.Data
                         "svarta vinbär, kiwi, citron, aronia, mango, passionsfrukt, rättika, sötpotatis, morot, hibiskus, vindruva; invertsockersirap; " +
                         "karamelliserat socker; arom; extrakt av fläderbär; palmolja; ytbehandlingsmedel: bivax vitt och gult, karnaubavax..",
                         Price = 10,
-                        ImageUrl = "Haribo-Starmix.jpg"
+                        ImageUrl = "Haribo-Starmix.jpg",
+                        Stock = 10,
                     },
                       new ProductModel()
                     {
@@ -181,7 +192,8 @@ namespace CandyShop.Data
                         Description = " Jordnötssmör 29% (malda rostade jordnötter, druvsocker, salt), majsmjöl, rismjöl, solros-/rapsolja, " +
                         "kornmjöl, rågmjöl, socker, salt, druvsocker, vetemjöl.",
                         Price = 20,
-                        ImageUrl = "Jordnotsringar.jpg"
+                        ImageUrl = "Jordnotsringar.jpg",
+                        Stock = 10,
                     },
                        new ProductModel()
                     {
@@ -192,7 +204,8 @@ namespace CandyShop.Data
                         "maltodextrin, lökpulver, syra (mjölksyra, citronsyra, äpplesyra), jästextrakt, vitlök, paprika, kaliumklorid, " +
                         "krydda (svartpeppar, chili), persilja, paprikaextrakt, naturlig arom), majsstärkelse, potatisstärkelse, grönpepparpulver.",
                         Price = 15,
-                        ImageUrl = "Linschips.jpg"
+                        ImageUrl = "Linschips.jpg",
+                        Stock = 10,
                     },
                 };
             }

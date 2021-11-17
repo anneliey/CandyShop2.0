@@ -48,6 +48,7 @@ namespace CandyShop.Pages
             UpdateQuantity(removeId, addId);
 
             CartView = CartProducts;
+            totalSum = CartProducts.Sum(product => product.Price);
 
 
             List<Models.ShippingModel> shippingMethods = ShippingManager.GetShippingMethods();
@@ -64,6 +65,7 @@ namespace CandyShop.Pages
             if (id != 0)
             {
                 CartProducts.Add(cartResult);
+                cartResult.Stock--;
 
             }
 
@@ -77,6 +79,7 @@ namespace CandyShop.Pages
 
 
             CartProducts.Remove(cartResult);
+            cartResult.Stock++;
 
             return CartProducts;
         }

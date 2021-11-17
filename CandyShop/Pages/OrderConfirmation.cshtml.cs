@@ -17,8 +17,9 @@ namespace CandyShop.Pages
         public string PostalCode { get; set; }
         public string ShippingOption { get; set; }
         public string PaymentOption { get; set; }
-        public double totalSum { get; set; }
+        //public double totalSum { get; set; }
         public List<Models.ProductModel> CartProducts { get; private set; }
+        public static double totalSum { get; set; }
 
         public void OnGet(string name, string email, string number, string adress, string city, string postalcode, 
             string shippingOption, string paymentOption)

@@ -16,7 +16,7 @@ namespace CandyShop.Pages
         public static List<ProductModel> CartProducts { get; set; } = GetProducts();
         public List<ProductModel> CartView { get; set; } = new List<ProductModel>();
         public List<ShippingModel> ShippingView { get; set; } = new List<ShippingModel>();
-        public static double totalSum;
+        public static double totalSum { get; set; }
         public static int quantity;
 
         
@@ -51,9 +51,9 @@ namespace CandyShop.Pages
             totalSum = CartProducts.Sum(product => product.Price);
 
 
-            List<Models.ShippingModel> shippingMethods = ShippingManager.GetShippingMethods();
-            var shippingResult = shippingMethods.ToList();
-            ShippingView = shippingResult;
+            //List<Models.ShippingModel> shippingMethods = ShippingManager.GetShippingMethods();
+            //var shippingResult = shippingMethods.ToList();
+            //ShippingView = shippingResult;
             
         }
 
@@ -102,15 +102,11 @@ namespace CandyShop.Pages
         {
             if (ShippingOption == "DHL")
             {
-                //CartManager.TotalAmount += 99;
+                totalSum += 99;
             }
             else
             {
-                //CartManager.TotalAmount += 39;
-            }
-            if (PaymentOption == "credit")
-            {
-                //CartManager.TotalAmount += 29;
+                totalSum += 39;
             }
 
             return RedirectToPage("/Confirmation", new { Name, Email, Number, Adress, City, PostalCode, ShippingOption, PaymentOption });

@@ -52,7 +52,11 @@ namespace CandyShop.Pages
             List<ShippingModel> shippingMethods = ShippingManager.GetShippingMethods();
             var shippingResult = shippingMethods.ToList();
             ShippingView = shippingResult;
+            
+        }
 
+        public void EmptyCart() {
+            CartView.Clear();
         }
 
         public static List<ProductModel> AddToCart(int id)

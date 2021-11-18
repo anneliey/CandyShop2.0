@@ -1,6 +1,16 @@
 ﻿@model string
 
 <form method="post">
-    <input asp-for="@Model" type="text" placeholder="Search..." />
-    <button class="btn btn-light my-2 my-sm-0" style="background-color: #572cd9" type="submit">Search</button>
+
+    @*<input asp-for="@Model" type="text" placeholder="Search..." />
+    <button class="btn btn-light my-2 my-sm-0" style="background-color: #572cd9" type="submit">Search</button>*@
+
+    <div class="input-group">
+        <input asp-for="@Model" type="text"  placeholder="Search"/>
+        <div class="input-group-append">
+            <button class="btn btn-light my-2 my-sm-0" style="background-color: #572cd9" type="submit">Search</button>
+        </div>
+    </div>
+
+
 </form>

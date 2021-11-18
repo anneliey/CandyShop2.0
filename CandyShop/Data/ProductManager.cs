@@ -84,7 +84,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 4,
+                        Id = 400,
                         Name = "Malaco Fizzypop 80 gr",
                         Category = "Godis",
                         Description = "Glukossirap, socker/sukker, vatten/vand, gelatin, syra (citronsyra), " +
@@ -120,7 +120,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 7,
+                        Id = 700,
                         Name = "Fanta Exotic 33 cl",
                         Category = "Soda",
                         Description = "Priset är inklusive pant",
@@ -131,7 +131,7 @@ namespace CandyShop.Data
 
                     new ProductModel()
                     {
-                        Id = 9,
+                        Id = 900,
                         Name = "Haribo Nappar Frukt 80 gr",
                         Category = "Candy",
                         Description = "Glukossirap; socker; gelatin; druvsocker; syra: citronsyra; frukt- och plantkoncentrat: spirulina, " +
@@ -143,7 +143,7 @@ namespace CandyShop.Data
                     },
                     new ProductModel()
                     {
-                        Id = 10,
+                        Id = 1000,
                         Name = "Haribo Nappar Sour 80 gr",
                         Category = "Candy",
                         Description = "Socker, glukossirap, gelatin, surhetsreglerande medel (citronsyra, fumarsyra), " +
@@ -156,7 +156,7 @@ namespace CandyShop.Data
                     },
                      new ProductModel()
                     {
-                        Id = 11,
+                        Id = 1100,
                         Name = "Haribo Starmix 80 gr",
                         Category = "Candy",
                         Description = "Glukossirap; socker; gelatin; druvsocker; fruktjuice från koncentrat: äpple, jordgubbar, hallon, " +
@@ -169,7 +169,7 @@ namespace CandyShop.Data
                     },
                       new ProductModel()
                     {
-                        Id = 12,
+                        Id = 1200,
                         Name = "Estrella Jordnötsringar 175 gr",
                         Category = "Chips",
                         Description = " Jordnötssmör 29% (malda rostade jordnötter, druvsocker, salt), majsmjöl, rismjöl, solros-/rapsolja, " +
@@ -181,7 +181,7 @@ namespace CandyShop.Data
 
                        new ProductModel()
                     {
-                        Id = 13,
+                        Id = 1300,
                         Name = "Estrella Linschips Ranch & Sourcream 110 g",
                         Category = "Chips",
                         Description = " Linsmjöl (38%), majsmjöl, rismjöl, solros-/rapsolja, kryddblandning (socker, salt, druvsocker, tomatpulver, " +

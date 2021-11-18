@@ -29,7 +29,7 @@ namespace CandyShop.Pages
 
 
 
-        // Ändra sen
+        
 
         public static List<ProductModel> GetProducts()
         {
@@ -51,9 +51,7 @@ namespace CandyShop.Pages
             totalSum = CartProducts.Sum(product => product.Price);
 
 
-            //List<Models.ShippingModel> shippingMethods = ShippingManager.GetShippingMethods();
-            //var shippingResult = shippingMethods.ToList();
-            //ShippingView = shippingResult;
+            
             
         }
 

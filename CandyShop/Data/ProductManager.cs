@@ -167,18 +167,7 @@ namespace CandyShop.Data
                         ImageUrl = "Haribo-Starmix.png",
                         Stock = 10,
                     },
-                      new ProductModel()
-                    {
-                        Id = 12,
-                        Name = "Estrella Jordnötsringar 175 gr",
-                        Category = "Chips",
-                        Description = " Jordnötssmör 29% (malda rostade jordnötter, druvsocker, salt), majsmjöl, rismjöl, solros-/rapsolja, " +
-                        "kornmjöl, rågmjöl, socker, salt, druvsocker, vetemjöl.",
-                        Price = 20,
-                        ImageUrl = "Jordnotsringar.jpg",
-                        Stock = 10,
-                    },
-
+                    
                        new ProductModel()
                     {
                         Id = 13,

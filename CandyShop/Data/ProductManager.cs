@@ -63,7 +63,7 @@ namespace CandyShop.Data
                     new ProductModel()
                     {
                         Id = 200,
-                        Name = "Coca-Cola Sleek Can 33 cl",
+                        Name = "Coca-Cola 33 cl",
                         Category = "Soda",
                         Description = "Priset är inklusive pant",
                         Price = 12,
@@ -74,7 +74,7 @@ namespace CandyShop.Data
                     new ProductModel()
                     {
                         Id = 300,
-                        Name = "Coca-Cola Vanilla Zero Sleek Can 33 cl",
+                        Name = "Coca-Cola Vanilla 33 cl",
                         Category = "Soda",
                         Description = "Priset är inklusive pant",
                         Price = 12,

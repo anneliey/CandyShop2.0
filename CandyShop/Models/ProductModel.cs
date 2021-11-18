@@ -8,7 +8,6 @@ namespace CandyShop.Models
 {
     public class ProductModel
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
         public string Name { get; set; }
         public string Category { get; set; }

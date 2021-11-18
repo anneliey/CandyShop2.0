@@ -51,7 +51,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="email">Email </label>
-                        <input type="email" asp-for="@Model.Email" class="form-control" id="email" placeholder="you@example.com">
+                        <input type="email" asp-for="@Model.Email" class="form-control" id="email" placeholder="">
                         <div class="invalid-feedback">
                             Please enter a valid email address for shipping updates.
                         </div>
@@ -67,7 +67,7 @@
 
                     <div class="mb-3">
                         <label for="address">Address</label>
-                        <input type="text" asp-for="@Model.Adress " class="form-control" id="address" placeholder="1234 Main St" required>
+                        <input type="text" asp-for="@Model.Adress " class="form-control" id="address" placeholder="" required>
                         <div class="invalid-feedback">
                             Please enter your shipping address.
                         </div>
@@ -97,27 +97,18 @@
 
                     <h4 class="mb-3">Payment</h4>
                     <div class="d-block my-3">
-                        <!--<div class="custom-control custom-radio">
-                            <input asp-for="@Model.PaymentOption" name="paymentMethod" id="credit" value="credit" type="radio"
-                                   class="custom-control-input" checked required>
-                            <label class="custom-control-label" for="credit">Credit card</label>-->
-                            @*<input asp-for="@Model.PaymentOption" id="credit" name="paymentMethod" value="credit" type="radio">
-                            <label class="custom-control-label" for="credit">Credit card</label>*@
-                        <!--</div>-->
+                        
                         <div class="custom-control custom-radio">
                             <input asp-for="@Model.PaymentOption" name="PaymentMethod" id="debit" value="debit" type="radio"
                                    class="custom-control-input" required>
                             <label class="custom-control-label" for="debit">Debit card</label>
-                            @*<input asp-for="@CartModel.PaymentOption" id="debit" name="paymentMethod" value="debit" type="radio">
-                            <label class="custom-control-label" for="debit">Debit card</label>*@
+                            
                         </div>
                         <div class="custom-control custom-radio">
                             <input asp-for="@Model.PaymentOption" name="PaymentMethod" id="paypal" value="paypal" type="radio"
                                    class="custom-control-input" required>
                             <label class="custom-control-label" for="paypal">Paypal</label>
-                            @*<input asp-for="@CartModel.PaymentOption" id="paypal" name="paymentMethod" value="paypal" type="radio">
-                            <label class="custom-control-label" for="paypal">PayPal</label>
-                        </div>*@
+                         </div>   
 
                         <hr class="mb-4">
                         <input class="btn btn-primary btn-lg btn-block" @*asp-page="OrderConfirmation"*@ value="Continue to checkout"type="submit"/>

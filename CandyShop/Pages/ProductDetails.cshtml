@@ -9,7 +9,7 @@
         @foreach (var product in Model.ProductDetailsView.Concat(Model.DbProductDetailsView))
 
         {
-            <div class="card">
+            <div class="product-body">
                 @if (product.ImageUrl != null)
                 {
                     <img class="product-thumbnail" src="~/images/@product.ImageUrl" />
@@ -25,7 +25,7 @@
 
                 </div>
                 <div class="add-to-cart-buttom">
-                    <a class="btn btn-secondary" asp-route-id="@product.Id" asp-page="/Cart">Add to cart</a>
+                    <a class="btn btn-secondary mb-4" asp-route-id="@product.Id" asp-page="/Cart">Add to cart</a>
                 </div>
                 <p>@product.Description</p>
             </div>
